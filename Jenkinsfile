@@ -14,7 +14,7 @@ node() {
        text(defaultValue: 'default', description: 'Long text goes here', name: 'This is a multi line string'),
        string(defaultValue: 'yeah', description: 'string parameter desc', name: 'this is a string parmeter'),
        choice(
-           choices: 'master\ndevelopment\n\nuglify',
+           choices: 'master\ndevelopment\nuglify',
            description: 'Which next branch do you want you to build?',
            name: 'NextBranch'),
      ])
