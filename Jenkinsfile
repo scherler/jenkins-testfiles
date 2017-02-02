@@ -11,6 +11,8 @@ node() {
            choices: 'master\ndevelopment\nfeatureXYZ\nhotfix69\nrevolution\nrefactor\nuglify',
            description: 'Which branch do you want to build?',
            name: 'Branch'),
+       text(defaultValue: 'default', description: 'Long text goes here', name: 'This is a multi line string'),
+       string(defaultValue: 'yeah', description: 'string parameter desc', name: 'this is a string parmeter'),
        choice(
            choices: 'master\ndevelopment\n\nuglify',
            description: 'Which next branch do you want you to build?',
