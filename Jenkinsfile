@@ -19,9 +19,11 @@ node() {
            name: 'NextBranch'),
      ])
    ])
-   if (params.ShouldBuild) { print "We are going to build now the branch " + params.Branch }
-   else { print "Not building anything nor branch "+ params.Branch }
-   stage("two minus one"){
+   stage("one") {
+     if (params.ShouldBuild) { print "We are going to build now the branch " + params.Branch }
+     else { print "Not building anything nor branch "+ params.Branch }
+   }
+   stage("two"){
         def branchInput = input id: 'CustomIdHere', message: 'this is a message to user', ok: 'Go ahead', parameters: [
                 booleanParam(defaultValue: true, description: 'yes or no', name: 'thisIsBool'),
                 choice(choices: 'radio1\nradio2\nradio3\nradio4', description: 'this is choice Radio description', name: 'This is choice Radio'),
