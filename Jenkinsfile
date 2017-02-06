@@ -15,7 +15,7 @@ node() {
      ])
    ])
 
-   // test the false value
+   // test the false value add stage
    print 'DEBUG: parameter isFoo = ' + params.isFoo
    print "DEBUG: parameter isFoo = ${params.isFoo}"
    sh "echo sh isFoo is ${params.isFoo}"
