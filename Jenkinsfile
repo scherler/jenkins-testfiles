@@ -19,7 +19,7 @@ node() {
            name: 'NextBranch'),
      ])
    ])
-   stage("one") {
+   stage("one Misisipi") {
      if (params.ShouldBuild) { print "We are going to build now the branch " + params.Branch }
      else { print "Not building anything nor branch "+ params.Branch }
    }
