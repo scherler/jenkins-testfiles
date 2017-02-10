@@ -27,8 +27,8 @@ node() {
         def branchInput = input id: 'CustomIdHere', message: 'this is a message to user', ok: 'Go ahead', parameters: [
        
        choice(
-           choices: 'master\ndevelopment\nfeatureXYZ\nhotfix69\nrevolution\nrefactor\nuglify',
-           description: 'Which branch do you want to build?',
+           choices: 'Select an option\ndevelopment\nfeatureXYZ\nhotfix69\nrevolution\nrefactor\nuglify',
+           description: 'Download label',
            name: 'Branch'),
        text(defaultValue: 'default', description: 'Long text goes here', name: 'This is a multi line string'),
        string(defaultValue: 'yeah', description: 'string parameter desc', name: 'this is a string parmeter'),
