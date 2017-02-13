@@ -4,11 +4,9 @@ node() {
      parameters([[$class: 'TextParameterDefinition', name: 'text', description: "enter something"]])
    ])
    stage("one") {
-      echo "Text: ${feedback.text}"
-      echo "Submitter: ${feedback.submitter}"
+      echo "Text: ${params.text}"
    }
    stage("two"){
- 
        Map feedback = input(submitterParameter: 'submitter', message: "tell me something", parameters: [
           [$class: 'TextParameterDefinition', name: 'text', description: "enter something"]
         ])
