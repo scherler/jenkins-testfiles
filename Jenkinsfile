@@ -1,6 +1,7 @@
 node() {
    // adds job parameters within jenkinsfile
    properties([
+      submitterParameter: 'submitter',
      parameters([[$class: 'TextParameterDefinition', name: 'text', description: "enter something"]])
    ])
    stage("one") {
