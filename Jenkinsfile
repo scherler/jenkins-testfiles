@@ -2,6 +2,7 @@ node() {
     // adds job parameters within jenkinsfile
    properties([
      parameters([
+         [$class: 'CredentialsParameterDefinition', credentialType: 'com.cloudbees.plugins.credentials.common.StandardCredentials', defaultValue: '', description: '', name: 'credentials', required: false],
        booleanParam(
          defaultValue: false,
          description: 'isFoo should be false',
