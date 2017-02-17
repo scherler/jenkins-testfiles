@@ -1,5 +1,3 @@
 node() {
-   stage('fail now') {
-       fail
-   }
+   fail
 }
