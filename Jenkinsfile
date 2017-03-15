@@ -9,6 +9,6 @@ node {
     sh 'echo `date` fin;sleep 3; echo `date` fin;' 
     sh 'echo yeah > foo.txt' 
     archiveArtifacts 'foo.txt' 
-    longLog(10000) 
+    longLog(10000, false) 
     stage 'NoSteps' 
 } 
