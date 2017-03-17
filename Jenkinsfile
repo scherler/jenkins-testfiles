@@ -1,20 +1,24 @@
-node {
-    stage "hey"
-    sh 'echo `date` Stage 1;sleep 1; echo a1; sleep 1;echo a2;sleep 1; echo a3;sleep 4'
-
-    stage "parallel"
-
-    parallel firstBranch: {
-        sh 'echo `date` Stage 2 - firstBranch www.spiegel.de'
-        sh 'ping -c 4 -i 3 www.spiegel.de || true'
-        sh 'echo `date` Stage 2 mirror out;sleep 1; echo a1; sleep 1;echo a2;sleep 1; echo a3;sleep 4'
-
-    }, secondBranch: {
-        sh 'echo `date` Stage 2 - secondBranch www.stern.de'
-        sh 'ping -c 6 -i 2 www.stern.de || true'
-        sh 'echo `date` Stage 2 star out;sleep 1; echo a1; sleep 1;echo a2;sleep 1; echo a3;sleep 1'
-    }
-
-    stage "ho"
-    sh 'echo done;sleep 1; echo a1; sleep 1;echo a2;sleep 1; echo a3;sleep 4'
+stage "Checkout"
+node('docker') {
+    sh "echo never going to give you up"
 }
+
+
+stage "Build"
+node {
+    sh "echo never going to let you down"
+}
+
+stage "Test"
+parallel (
+    "Firefox" : { echo "Never run around" },
+    "Edge" : { echo "Never desert you" }
+)    
+    
+stage "Staging" 
+echo "Make you cry (never)"
+
+stage "Production"
+echo "Tell a lie and hurt you (never)"
+
+ 
