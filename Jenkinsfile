@@ -4,7 +4,7 @@ import longLog
 
 node {
     stage "hey"
-    longLog(10001, true) 
+    longLog(19242, true) 
     sh 'echo `date` Stage 1;sleep 1; echo a1; sleep 1;echo a2;sleep 1; echo a3;sleep 4'
 
     stage "parallel"
