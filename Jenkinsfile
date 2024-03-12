@@ -1,29 +1,20 @@
-node() {
-   // adds job parameters within jenkinsfile
-   properties([
-     parameters([
-       booleanParam(
-         defaultValue: false,
-         description: 'isFoo should be false',
-         name: 'isFoo'
-       ),
-       booleanParam(
-         defaultValue: true,
-         description: 'isBar should be true',
-         name: 'isBar'
-       ),
-     ])
-   ])
+node {
+    stage "hey"
+    sh 'echo `date` Stage 1;sleep 1; echo a1; sleep 1;echo a2;sleep 1; echo a3;sleep 4'
 
-   // test the false value
-   print 'DEBUG: parameter isFoo = ' + params.isFoo
-   print "DEBUG: parameter isFoo = ${params.isFoo}"
-   sh "echo sh isFoo is ${params.isFoo}"
-   if (params.isFoo) { print "THIS SHOULD NOT DISPLAY" }
+    stage "parallel"
 
-   // test the true value
-   print 'DEBUG: parameter isBar = ' + params.isBar
-   print "DEBUG: parameter isBar = ${params.isBar}"
-   sh "echo sh isBar is ${params.isBar}"
-   if (params.isBar) { print "this should display" }
+    parallel firstBranch: {
+        sh 'echo `date` Stage 2 - firstBranch www.spiegel.de'
+        sh 'ping -c 4 -i 3 www.spiegel.de || true'
+        sh 'echo `date` Stage 2 mirror out;sleep 1; echo a1; sleep 1;echo a2;sleep 1; echo a3;sleep 4'
+
+    }, secondBranch: {
+        sh 'echo `date` Stage 2 - secondBranch www.stern.de'
+        sh 'ping -c 6 -i 2 www.stern.de || true'
+        sh 'echo `date` Stage 2 star out;sleep 1; echo a1; sleep 1;echo a2;sleep 1; echo a3;sleep 1'
+    }
+
+    stage "ho"
+    sh 'echo done;sleep 1; echo a1; sleep 1;echo a2;sleep 1; echo a3;sleep 4'
 }
